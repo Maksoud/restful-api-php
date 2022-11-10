@@ -55,6 +55,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Accessors
+     * Setting names to first letter uppercase
+     * (This is a sample what you can do. Not required.)
+     */
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = ucwords($name);
+    }
+
+    /**
+     * Accessors
+     * Getting names with first letter uppercase
+     * (This is a sample what you can do. Not required.)
+     */
+    public function getNameAttribute($name)
+    {
+        return ucwords($name);
+    }
+
     public function isVerified()
     {
         return $this->verified == User::VERIFIED_USER;
